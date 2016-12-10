@@ -1,45 +1,57 @@
 /**
  * Created by antonfluch on 2016-12-10.
+ * <p>
+ * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+ * Find the sum of all the primes below two million.
  */
 
 /**
-
- The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
-
- Find the sum of all the primes below two million.
-
+ * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+ * Find the sum of all the primes below two million.
  */
+
+import java.util.Arrays;
+import java.math.BigInteger;
+
 public class Problem10 {
-    public static void main(String [] args){
-        long startTime = System.currentTimeMillis();
+    public static void main(String[] args) {
+        float startTime = System.currentTimeMillis();
 
-        double count = 0;
-        double [] primes = new double[2000000];
-        for(int i = 1; i < 999999999; i = i + 2){
-            boolean isPrime = true;
+        // will contain true or false values for the first 2 000 000 integers
+        boolean[] primes = new boolean[2000000];
 
-            for(int x = 2; x < i; x++){
-                if(i % x == 0){
-                    isPrime = false;
+        // assume all integers are prime.
+        Arrays.fill(primes, true);
+
+        // we know 0 and 1 are not prime.
+        primes[0] = primes[1] = false;
+
+        for (int i = 2; i < primes.length; i++) {
+            //if the number is prime,
+            //then go through all its multiples and make their values false.
+            if (primes[i]) {
+                for (int j = 2; i * j < primes.length; j++) {
+                    primes[i * j] = false;
                 }
-            }
-            if(isPrime){
-//                primes[count] = i;
-                count++;
-                System.out.println(count + ": " + i);
-            }
-            if(count == 2000000){
-                double result = 0;
-                for(double z : primes){
-                    result = result + z;
-                }
-                break;
             }
         }
 
+        // Iterate over all numbers in the final array and add the primes to result
+        double result = 0;
+        for(int z = 0; z < primes.length; z++){
+            if(primes[z] == true){
+                result = result + z;
+            }
+        }
+
+        // Finally print out result
+        System.out.print("Result: ");
+        System.out.printf("%.0f", result);
+        System.out.println();
+
         float estimatedTime = System.currentTimeMillis() - startTime;
         float estSeconds = estimatedTime / 1000;
-        System.out.println( "\n" + "It took: " + estimatedTime + "ms");
+        System.out.println("\n" + "It took: " + estimatedTime + "ms");
         System.out.println("Or in seconds: " + estSeconds + "s");
     }
 }
