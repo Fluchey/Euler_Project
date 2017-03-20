@@ -8,17 +8,14 @@ import java.util.List;
 public class Problem1 {
     public static void main (String[] args){
         long numberToCheck = 600851475143L;
-        Integer smallerNumber = 13195;
-        int [] primes = new int [13195];
-        int arrayCalc = 0;
 
         primeFactors(numberToCheck);
 
     }
 
-    public static List<Integer> primeFactors(long number) {
+    private static List<Integer> primeFactors(long number) {
         long n = number;
-        List<Integer> factors = new ArrayList<Integer>();
+        List<Integer> factors = new ArrayList<>();
         for (int i = 2; i <= n; i++) {
             while (n % i == 0) {
                 factors.add(i);

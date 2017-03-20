@@ -1,17 +1,11 @@
 /**
  * Created by antonfluch on 2016-12-10.
- * <p>
- * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
- * Find the sum of all the primes below two million.
- */
-
-/**
+ *
  * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  * Find the sum of all the primes below two million.
  */
 
 import java.util.Arrays;
-import java.math.BigInteger;
 
 public class Problem10 {
     public static void main(String[] args) {
@@ -39,9 +33,10 @@ public class Problem10 {
         // Iterate over all numbers in the final array and add the primes to result
         double result = 0;
         for(int z = 0; z < primes.length; z++){
-            if(primes[z] == true){
-                result = result + z;
+            if (!primes[z]) {
+                continue;
             }
+            result = result + z;
         }
 
         // Finally print out result

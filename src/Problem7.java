@@ -6,7 +6,6 @@ public class Problem7 {
         long startTime = System.currentTimeMillis();
 
         int count = 0;
-        int [] primes = new int[10001];
         for(int i = 1; i < 1000000000; i = i + 2){
             boolean isPrime = true;
 

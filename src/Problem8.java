@@ -63,8 +63,8 @@ public class Problem8 {
             }
         }
 
-        for(int test = 0; test < numberArray.length; test++){
-            System.out.print(numberArray[test] + " * ");
+        for (int aNumberArray : numberArray) {
+            System.out.print(aNumberArray + " * ");
         }
         System.out.println("= " + biggestNumber);
 

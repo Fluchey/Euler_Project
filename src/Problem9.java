@@ -17,17 +17,15 @@ public class Problem9 {
     public static void main(String[] args){
         long startTime = System.currentTimeMillis();
 
-        long a = 1;
-        long producta = 0;
+        long a;
+        long producta;
 
-        long b = 1;
-        long productb = 0;
+        long b ;
+        long productb;
 
-        long c = 1;
-        long productc = 0;
+        long c;
+        long productc;
 
-
-        long product = 0;
 
         for(int i = 2; i <= 333; i++){
             a = i;

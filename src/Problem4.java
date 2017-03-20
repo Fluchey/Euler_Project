@@ -8,8 +8,8 @@ import java.util.Collections;
 public class Problem4 {
     public static void main(String []args){
         long startTime = System.currentTimeMillis();
-        int input = 0;
-        int reversedNum = 0;
+        int input;
+        int reversedNum;
         ArrayList<Integer> listOfNumbers = new ArrayList<>();
 
         for(int i = 100; i < 1000; i++){
